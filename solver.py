@@ -1,12 +1,12 @@
 import numpy as np
 from combinations import BaseCombiner
+from mutations import BaseMutator
 from tower import Tower
 import copy
 
 
-# todo add mutation method types
 class TowerSolver:
-    def __init__(self, base_tower: Tower, mutation_method, combination_method: BaseCombiner,):
+    def __init__(self, base_tower: Tower, mutation_method: BaseMutator, combination_method: BaseCombiner):
         self.base_tower = base_tower
         self.tower_history = [base_tower]
         self.mutation_method = mutation_method
@@ -17,7 +17,7 @@ class TowerSolver:
         pass
 
     def _mutate_tower(self, tower_to_mutate: Tower):
-        return self.mutation_method(tower_to_mutate)
+        return self.mutation_method.apply(tower_to_mutate)
 
     def _combine_towers(self, towers_to_combine: list):
         return self.combination_method.apply(towers_to_combine)
