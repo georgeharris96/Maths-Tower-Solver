@@ -1,12 +1,12 @@
 import numpy as np
-from combinations import BaseCombiner
+from crossovers import BaseCrossover
 from mutations import BaseMutator
 from tower import Tower
 import copy
 
 
 class TowerSolver:
-    def __init__(self, base_tower: Tower, mutation_method: BaseMutator, combination_method: BaseCombiner):
+    def __init__(self, base_tower: Tower, mutation_method: BaseMutator, combination_method: BaseCrossover):
         self.base_tower = base_tower
         self.tower_history = [base_tower]
         self.mutation_method = mutation_method
