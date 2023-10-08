@@ -6,6 +6,9 @@ class Tower:
     def __init__(self):
         self.blocks = np.empty((0, 4), int)
 
+    def __len__(self):
+        return len(self.blocks)
+
     def add_block(self, blocks_to_add: list):
         self.blocks = np.concatenate((self.blocks, blocks_to_add), axis=0)
 
